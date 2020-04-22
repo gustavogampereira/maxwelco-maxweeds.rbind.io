@@ -15,10 +15,10 @@
   [pt.params]
     description = "Site description in Chinese..."
   
-[[pt.menu.main]]
-  name = "Sobre"
-  url = "#about"
-  weight = 10
+#[[pt.menu.main]]
+#  name = "Sobre"
+#  url = "#about"
+#  weight = 10
 
 [[pt.menu.main]]
   name = "Blog"
