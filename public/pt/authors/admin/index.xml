@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maxwel Coura Oliveira</title>
+    <link>/pt/authors/admin/</link>
+    <description>Recent content on Maxwel Coura Oliveira</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>pt-brasil</language>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/pt/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chave para Identificação de Injúrias Causadas por Herbicidas</title>
+      <link>/pt/post/chave_id-herbicida/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/post/chave_id-herbicida/</guid>
+      <description>&lt;p&gt;Por &lt;a href=&#34;https://twitter.com/maxwelco&#34;&gt;Maxwel Coura Oliveira&lt;/a&gt; e &lt;a href=&#34;https://twitter.com/WiscWeeds&#34;&gt;Rodrigo Werle&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Com o inicio da safra de milho e soja nas principais regiões produtoras no Brasil e o desafio atual no manejo de plantas daninhas devido ao aumento nos casos de resistência à herbicidas, produtores rurais estão diversificando cada vez mais o uso de herbicidas. Aumenta assim as chances de injúria de herbicida(s) causadas por resíduos de herbicida aplicado na cultura anterior (&lt;em&gt;carryover&lt;/em&gt;), contaminação de tanque e deriva.&lt;/p&gt;
+&lt;p&gt;Criamos uma chave para ajudar na determinação de herbicidas que podem ser responsáveis por injúrias na cultura do milho e/ou soja. Essa chave usa o mecanismo-de-ação (MdA) e a respectiva classificação numérica da Weed Science Society of America (WSSA), pois herbicidas do mesmo MdA causam injúrias semelhantes. Depois de chegar a um MdA específico, você pode verificar se algum herbicida desse grupo é o responsável pela injúria na cultura. Além disso, o controle do grupo de plantas daninhas é especificado. Por isso, lembre-se de observar as plantas daninhas na área para validar a identificação.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Para baixar clique aqui&lt;/strong&gt; &lt;a href=&#34;/files/2018_HerbicideInjury_BRA.pdf&#34;&gt;&amp;ldquo;Chave para Identificação de Injúrias Causadas por Herbicidas&amp;rdquo;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/chave/herbchart.png&#34; alt=&#34;Figure&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Nos agradecemos a Mimi Broeske (editora sênior do &lt;a href=&#34;http://ipcm.wisc.edu/npm/&#34;&gt;NPM&lt;/a&gt;) por desenvolver o formato da publicação. Bruno Canella Vieira (Universidade de Nebraska-Lincoln), Dr. Marcelo Reis (Universidade Federal de Viçosa-Rio Paranaíba) e Dr. Leandro Tropaldi (Unesp Campus Dracena) por revisarem essa publicação.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Questionário - O Manejo de Culturas e Plantas Daninhas no Brasil</title>
+      <link>/pt/post/survey-2018/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/post/survey-2018/</guid>
+      <description>&lt;h2 id=&#34;quem-somos-nós&#34;&gt;&lt;strong&gt;Quem somos nós?&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Eu sou Pesquisador Associado (pós-doc) na &lt;a href=&#34;https://www.wisc.edu/&#34;&gt;Universidade de Wisconsin-Madison&lt;/a&gt;, EUA, trabalhando com manejo de plantas daninhas junto com o Professor Assistente &lt;a href=&#34;https://twitter.com/WiscWeeds&#34;&gt;Rodrigo Werle&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;o-desafio-no-manejo-de-plantas-daninhas&#34;&gt;&lt;strong&gt;O desafio no manejo de plantas daninhas&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Nos EUA, o manejo de plantas daninhas resistentes à herbicidas tornou-se um dos principais desafios para a produção agrícola. Junto dos EUA, o Brasil é um dos principais produtores de soja, milho e algodão no mundo. Porém, tem sido reportado o cresimento alarmante no número de plantas daninhas resistentes à herbicidas no &lt;a href=&#34;http://www.weedscience.org/Summary/Country.aspx&#34;&gt;Brasil&lt;/a&gt; (&lt;strong&gt;existem 46 casos únicos de planta daninha resistentes, sendo 8 plantas daninhas resistentes ao herbicida glifosato&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/br/survey/mapa.png&#34; alt=&#34;Figure&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;por-que-estamos-fazendo-esse-questionário&#34;&gt;&lt;strong&gt;Por que estamos fazendo esse questionário?&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Com o aumento do número de plantas daninhas resistentes à herbicidas no Brasil, torna-se importante entender a percepção e as estratégias adotadas para o manejo de resistência realizado pelos principais atores da agricultura brasileira (ex.: produtor rural, empresa, pesquisador, etc). O uso de questionários tem sido importante para auxiliar no conhecimento de fatos e pode assitir na tomada de decisões futuras. Com isso, desenvolvemos um questionário com perguntas gerais e específicas sobre o manejo de culturas e plantas daninhas no Brasil. Responder o questionário dura em média 10 minutos e sua participação é de extrema importância. Os resultados serão divulgados com os participantes.&lt;/p&gt;
+&lt;p&gt;✔️&lt;em&gt;Todas as informações são confidenciais, porém, caso queira receber os resultados por e-mail, você terá a opção de colocar seu contato no questionário.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;para-participar&#34;&gt;&lt;strong&gt;Para participar&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clique aqui&lt;/strong&gt; &lt;a href=&#34;https://uwmadison.co1.qualtrics.com/jfe/form/SV_enA4kYyfEtg8xqR?Q_CHL=social&amp;amp;Q_SocialSource=twitter%5D&#34;&gt;Questionário - Manejo de Culturas e Plantas Daninhas no Brasil&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;QR Code&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/br/survey/code.png&#34; alt=&#34;Figure&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

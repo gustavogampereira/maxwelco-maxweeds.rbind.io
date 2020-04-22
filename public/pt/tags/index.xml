@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Maxwel Coura Oliveira</title>
+    <link>/pt/tags/</link>
+    <description>Recent content in Tags on Maxwel Coura Oliveira</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>pt-brasil</language>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>herbicida</title>
+      <link>/pt/tags/herbicida/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/tags/herbicida/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>agricultura</title>
+      <link>/pt/tags/agricultura/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/tags/agricultura/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>questionário</title>
+      <link>/pt/tags/questionario/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/tags/questionario/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>educação</title>
+      <link>/pt/tags/educacao/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/tags/educacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programação</title>
+      <link>/pt/tags/programacao/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/tags/programacao/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
