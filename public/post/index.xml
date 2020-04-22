@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Maxwel Coura Oliveira</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Maxwel Coura Oliveira</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Herbicide Site of Action Key for Crop Injury Symptoms</title>
+      <link>/post/herbicide-id/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/herbicide-id/</guid>
+      <description>&lt;p&gt;By &lt;a href=&#34;https://twitter.com/maxwelco&#34;&gt;Maxwel Oliveira&lt;/a&gt; (UW-Madison Weed Science Postdoctoral Research Associate) and &lt;a href=&#34;https://agronomy.wisc.edu/rodrigo-werle/&#34;&gt;Rodrigo Werle&lt;/a&gt; (UW-Madison Extension Cropping Systems Weed Scientist)&lt;/p&gt;
+&lt;p&gt;With the widespread occurrence of herbicide-resistant weeds, corn and soybean farmers are having to diversify their herbicide programs to obtain adequate levels of weed control. The increased herbicide diversification increases the likelihood of crop injury due to carryover, misapplication, tank contamination, and/or drift.&lt;/p&gt;
+&lt;p&gt;To help you determine which herbicide(s) may be responsible for suspected injury on crops, this key uses the &lt;a href=&#34;http://ipcm.wisc.edu/download/pubsPM/Herbicide-Mode-of-Action.pdf&#34;&gt;herbicide’s site of action (SoA) and respective Weed Science Society of America group number&lt;/a&gt;; herbicides within the same SoA can cause similar symptoms. After reaching a specific SoA, you can check if any of the herbicides from that group are the source of crop response. Herbicide control (selectivity) is specified for broadleaf and/or grass weed species and remember to also observe weeds for injury symptoms.&lt;/p&gt;
+&lt;p&gt;To download the &lt;a href=&#34;/files/2018_HerbicideInjury_EN.pdf&#34;&gt;&lt;strong&gt;&amp;ldquo;Herbicide Site of Action Key for Crop Injury Symptoms&amp;rdquo; click HERE&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;/post/chave/herbchart_EN.jpg&#34; alt=&#34;Figure&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This publication is available from the &lt;a href=&#34;http://ipcm.wisc.edu/npm/&#34;&gt;&lt;strong&gt;UW-Madison Nutrient and Pest Management Program (NPM)&lt;/strong&gt;&lt;/a&gt;. We thank Mimi Broeske (NPM Senior Editor) for developing the publication layout.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Making Available R Codes for Crop-Weed Competition Research</title>
+      <link>/post/additive-design/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/additive-design/</guid>
+      <description>&lt;p&gt;My colleagues and I published a manuscript entitled &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/full/10.1111/wre.12317&#34;&gt;Additive design: the concept and data analysis&lt;/a&gt;. Great thanks to Dr. &lt;a href=&#34;http://www.wiscweeds.info/&#34;&gt;Rodrigo Werle&lt;/a&gt; and Dr. &lt;a href=&#34;https://agronomy.unl.edu/knezevic&#34;&gt;Stevan Knezevic&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/additive/WeedRes.png&#34; alt=&#34;Figure&#34;&gt;&lt;/p&gt;
+&lt;p&gt;As described in the summary above, this a method paper where we also provided the R codes for data analysis in &lt;a href=&#34;https://rstudio.com&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;. The original dataset is available for those who do not have crop-weed competition data but are willing to learn the modelling skills.&lt;/p&gt;
+&lt;h4 id=&#34;both-links-are-on-my-github-repository&#34;&gt;Both links are on my GitHub repository&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/maxwelco/Additive-design&#34;&gt;R codes for additive design studies&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/maxwelco/Additive-design/tree/master/data&#34;&gt;Original Data&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Making R codes available to everyone is part of my &lt;strong&gt;Open Source Weed Science&lt;/strong&gt; project. In the next posts, I will be including more R codes for data analysis of weed research studies.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
