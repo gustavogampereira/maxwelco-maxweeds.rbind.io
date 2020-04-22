@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Maxwel Coura Oliveira</title>
+    <link>/authors/</link>
+    <description>Recent content in Authors on Maxwel Coura Oliveira</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/admin/</guid>
+      <description>&lt;p&gt;Maxwel C Oliveira is an Assistant Professor of Weed Science at the Western São Paulo University (Unoeste). His research interests include Herbicide Weed Resistance, Weed Ecology/Biology/Management and Data Science. He teaches Weed and Data Science to undergrad and graduate students. Also, he leads the Weed Science group at Unoeste, which develops research and extension in Weed Science in the western region of São Paulo.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
