@@ -3,7 +3,6 @@ authors:
 - admin
 avatar_image: foto_01.jpg
 bio: My research interests include Weed Research and Data Science.
-  matter.
 btn:
 - label: Download Resume
   url: /files/cv/Curriculum-Vitae.pdf
