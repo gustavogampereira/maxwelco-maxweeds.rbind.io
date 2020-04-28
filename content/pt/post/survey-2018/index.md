@@ -24,7 +24,9 @@ title: 'Questionário - O Manejo de Culturas e Plantas Daninhas no Brasil'
 ## **O desafio no manejo de plantas daninhas**  
   Nos EUA, o manejo de plantas daninhas resistentes à herbicidas tornou-se um dos principais desafios para a produção agrícola. Junto dos EUA, o Brasil é um dos principais produtores de soja, milho e algodão no mundo. Porém, tem sido reportado o cresimento alarmante no número de plantas daninhas resistentes à herbicidas no [Brasil](http://www.weedscience.org/Summary/Country.aspx) (**existem 46 casos únicos de planta daninha resistentes, sendo 8 plantas daninhas resistentes ao herbicida glifosato**). 
   
-![Figure](/br/survey/mapa.png) 
+![Figure](/post/survey/mapa.png) 
+ 
+
 
 ##  **Por que estamos fazendo esse questionário?**
   Com o aumento do número de plantas daninhas resistentes à herbicidas no Brasil, torna-se importante entender a percepção e as estratégias adotadas para o manejo de resistência realizado pelos principais atores da agricultura brasileira (ex.: produtor rural, empresa, pesquisador, etc). O uso de questionários tem sido importante para auxiliar no conhecimento de fatos e pode assitir na tomada de decisões futuras. Com isso, desenvolvemos um questionário com perguntas gerais e específicas sobre o manejo de culturas e plantas daninhas no Brasil. Responder o questionário dura em média 10 minutos e sua participação é de extrema importância. Os resultados serão divulgados com os participantes. 
@@ -37,5 +39,5 @@ title: 'Questionário - O Manejo de Culturas e Plantas Daninhas no Brasil'
 - **Clique aqui** [Questionário - Manejo de Culturas e Plantas Daninhas no Brasil](https://uwmadison.co1.qualtrics.com/jfe/form/SV_enA4kYyfEtg8xqR?Q_CHL=social&Q_SocialSource=twitter]) 
 
 - **QR Code** 
+![Figure](/post/survey/code.png) 
 
-![Figure](/br/survey/code.png) 
