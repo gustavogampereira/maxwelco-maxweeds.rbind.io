@@ -95,11 +95,8 @@ A segunda página mostra todos os herbicidas pré-misturados e de ingredientes a
 ![Figure](/post/chart/second.png) 
 
 
-____________________________________________________________________________________________
-**Para fazer o download, clique aqui:**
-- [Classificação de Herbicidas no Brasil - Versão grupo numérico](/post/chart/Chart_Herbicida_Num.pdf)
-
-- [Classificação de Herbicidas no Brasil - Versão grupo alfabético](/post/chart/Chart_Herbicida_Alf.pdf)
-____________________________________________________________________________________________
+_________________________________________________________________________________________
+**Para fazer o download, clique aqui:** [Classificação de Herbicidas no Brasil](/post/chart/Chart_Herbicida_Alf.pdf)
+_________________________________________________________________________________________
 
 Espero que o chart de herbicidas apresentado aqui possa ser usado por estudates e professores para fins educacionais, e para tomada de decisões por técnicos, consultores e produtores rurais no Brasil. 
