@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maxwel Coura Oliveira</title>
-    <link>/</link>
+    <link>/pt/</link>
     <description>Recent content on Maxwel Coura Oliveira</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
-    <language>en-us</language>
+    <language>pt-brasil</language>
     <lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
     
-	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/pt/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>/talk/</link>
+      <link>/pt/talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       
-      <guid>/talk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Courses</title>
-      <link>/courses/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      
-      <guid>/courses/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Slides</title>
-      <link>/slides/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/slides/</guid>
+      <guid>/pt/talk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Posts</title>
-      <link>/post/</link>
-      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <link>/pt/post/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/</guid>
+      <guid>/pt/post/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Privacy Policy</title>
-      <link>/privacy/</link>
+      <title>Cursos</title>
+      <link>/pt/courses/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/pt/courses/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Slides</title>
+      <link>/pt/slides/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/slides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Política de privacidade</title>
+      <link>/pt/privacy/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
       
-      <guid>/privacy/</guid>
+      <guid>/pt/privacy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>/project/</link>
+      <link>/pt/project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/project/</guid>
+      <guid>/pt/project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Publications</title>
-      <link>/publication/</link>
+      <link>/pt/publication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/publication/</guid>
+      <guid>/pt/publication/</guid>
       <description></description>
     </item>
     
