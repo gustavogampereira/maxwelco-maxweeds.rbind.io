@@ -99,4 +99,4 @@ ________________________________________________________________________________
 **Para fazer o download, clique aqui:** [Classificação de Herbicidas no Brasil](/post/chart/Chart_Herbicida.pdf)
 _________________________________________________________________________________________
 
-Espero que o chart de herbicidas apresentado aqui possa ser usado por estudates e professores para fins educacionais, e para tomada de decisões por técnicos, consultores e produtores rurais no Brasil. 
+Espero que o chart de herbicidas apresentado aqui possa ser usado por estudantes e professores para fins educacionais, e para tomada de decisões por técnicos, consultores e produtores rurais no Brasil. 
