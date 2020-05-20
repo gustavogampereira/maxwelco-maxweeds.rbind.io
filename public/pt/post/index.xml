@@ -6,15 +6,465 @@
     <description>Recent content in Posts on Maxwel Coura Oliveira</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>pt-brasil</language>
-    <lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/pt/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Análise de controle de plantas daninhas</title>
+      <link>/pt/post/controle/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/post/controle/</guid>
+      <description>
+
+
+&lt;p&gt;O controle de plantas daninhas com herbicidas é um experimento comum realizado na pesquisa de plantas daninhas. Geralmente, os experimentos são organizados em delineamento em blocos casualizados com vários tratamentos (herbicidas). Dias após o tratamento (DAT), uma nota de controle em percentagem (%) é dada às plantas daninhas. A percentagem no controle de plantas daninhas varia de 0% (plantas sem injúrias) e 100% (plantas completamente controladas). Portanto, antes de iniciar os experimentos, o pesquisador sabe que os valores de controle variam entre 0 a 100%.&lt;/p&gt;
+&lt;p&gt;Esta é uma análise estatística não paramétrica, que não segue uma distribuição normal (gaussiana). A distribuição normal é uma premissa da ANOVA. Usaremos a &lt;em&gt;distribuição beta&lt;/em&gt; (escala logit), que é uma família de distribuições de probabilidade contínuas definidas no intervalo 0 e 1. Para isso, as notas de controle de plantas daninhas devem ser alteradas para o intervalo 0 e 1. Por exemplo, se o controle de buva for 90%, ele deverá ser listado como 0,90 no seu arquivo de planilha. Além disso, a &lt;em&gt;distribuição beta&lt;/em&gt; não aceita valores 0 e 1. Sendo assim, o controle de plantas daninhas de 0% e 100% deve ser alterado para 0,001 e 0,999, respectivamente.&lt;/p&gt;
+&lt;div id=&#34;vamos-começar&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Vamos começar&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Baixe o programa &lt;strong&gt;R&lt;/strong&gt; de acordo com seu sistema operacional: &lt;a href=&#34;https://www.r-project.org&#34; class=&#34;uri&#34;&gt;https://www.r-project.org&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Baixe o programa &lt;strong&gt;RStudio&lt;/strong&gt; de acordo com seu sistema operacional: &lt;a href=&#34;https://rstudio.com&#34; class=&#34;uri&#34;&gt;https://rstudio.com&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;crie-um-arquivo-no-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Crie um arquivo no R&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Clique em File -&amp;gt; New project… -&amp;gt; New directory -&amp;gt; New Project -&amp;gt; Salve o diretório de trabalho R onde quiser no seu laptop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O arquivo salvo terá um projeto do R e você deve copiar e colar todos os seus dados (ex.,arquivo excel) no mesmo diretório de trabalho criado.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clique em Arquivo -&amp;gt; Novo arquivo -&amp;gt; script R (.R)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ou&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clique em Arquivo -&amp;gt; Novo arquivo -&amp;gt; remarcação R … (.Rmd)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Embora eu goste de trabalhar no markdown R, o script R é mais fácil para iniciantes no Rstudio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;instale-os-pacotes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instale os pacotes&lt;/h2&gt;
+&lt;p&gt;Copie e cole os seguintes códigos no seu aquivo .R ou .Rmd.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;install.packages(tidyverse)
+install.packages(glmmTMB)
+install.packages(lme4)
+install.packages(lmerTest)
+install.packages(emmeans)
+install.packages(RCurl)
+install.packages(car)
+install.packages(kableExtra)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Execute todos os códigos abaixo clicando na opção &lt;em&gt;Run&lt;/em&gt; no canto superior direito do seu aquivo .R ou .Rmd. Esses códigos instalam os pacotes necessários para analisar experimentos de controle de plantas daninhas (%). Depois de instalar esses pacotes, você não precisará instalá-los toda vez que abrir o Rstudio, a menos que você atualize o R ou o Rstudio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dados&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Dados&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;library(tidyverse)
+library(RCurl)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Os dados utilizados para o exercício são de um &lt;a href=&#34;https://www.doi.org/10.1017/wet.2016.4&#34;&gt;artigo científico&lt;/a&gt; de controle (%) de biótipo de &lt;em&gt;Amaranthus tuberculatus&lt;/em&gt; (vou chamar de caruru aqui) com herbicidas em pós-emergência. Os nomes dos herbicidas foram alterados para A, B, C, D e E.&lt;/p&gt;
+&lt;p&gt;Copie cole os seguintes códigos abaixo e execute no R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_path &amp;lt;- getURL(&amp;quot;https://raw.githubusercontent.com/maxwelco/Anova-beta/master/data/control.csv&amp;quot;)
+
+dado &amp;lt;- read_csv(df_path)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Após executar os codigos acima, os dados deve estar armazenado no nome &lt;em&gt;dado&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dado&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 30 x 4
+##     year herbicide   rep control
+##    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;
+##  1  2013 A             1    0.99
+##  2  2013 A             2    0.97
+##  3  2013 A             3    0.96
+##  4  2013 B             1    0.99
+##  5  2013 B             2    0.99
+##  6  2013 B             3    0.97
+##  7  2013 C             1    0.95
+##  8  2013 C             2    0.9 
+##  9  2013 C             3    0.95
+## 10  2013 D             1    0.5 
+## # … with 20 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O aquivo &lt;em&gt;dado&lt;/em&gt; possui o controle (control) de caruru com 5 trataments (herbicidas A, B, C, D, E), 2 anos (year, 2013 e 2014) e 3 blocos (rep).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;homogeneidade-de-variância&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Homogeneidade de variância&lt;/h1&gt;
+&lt;p&gt;Testa a hipótese nula de que a homogeneidade de variância entre cada ano são iguais.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(car)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função Levene&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;leveneTest(dado$control,  dado$herbicide)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in leveneTest.default(dado$control, dado$herbicide): dado$herbicide
+## coerced to factor.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Levene&amp;#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&amp;gt;F)
+## group  4  0.5109 0.7282
+##       25&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Os resultados mostram o valor &lt;em&gt;P&lt;/em&gt;-value = 0.7282, a hipótese nula é rejeitada, o que significa que as variações em cada ano são iguais.&lt;/p&gt;
+&lt;div id=&#34;modelo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Modelo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Execute os pacotes abaixo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;library(glmmTMB)
+library(lme4)
+library(lmerTest)&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Generalized Linear Mixed Models using Template Model Builder&lt;/em&gt; de Mollie Brooks&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Modelo misto&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Familia beta com logit&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O modelo (&lt;em&gt;model&lt;/em&gt;) tem control (controle) como variável resposta, herbicida como efeitos fixos e year (ano) (junto com rep) como efeitos aleatórios.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;glmmTMB&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model &amp;lt;- glmmTMB(control ~ herbicide + (1|year/rep), beta_family(link = &amp;quot;logit&amp;quot;), data=dado)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;anova&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Anova&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Execute o pacote abaixo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;Anova.glmmTMB&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glmmTMB:::Anova.glmmTMB(model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Deviance Table (Type II Wald chisquare tests)
+## 
+## Response: control
+##            Chisq Df Pr(&amp;gt;Chisq)    
+## herbicide 212.35  4  &amp;lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O &lt;em&gt;P&lt;/em&gt;-valor &amp;lt; 2.2e-16; existe evidência que é baixa a probabilidade de que uma diferença de alguma magnitude entre os herbicidas testados ocorre apenas por acaso, assumindo que a hipótese nula é verdadeira.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;avaliando-o-controle-de-caruru-com-herbicidas&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Avaliando o controle de caruru com herbicidas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Execute o pacote abaixo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;library(emmeans)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;gráficos-de-interação-para-médias-marginais-estimadas-emmip&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Gráficos de interação para médias marginais estimadas (emmip)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;type=“response”, herbicida e intervalos de confiança de volta da escala logit&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;coord_flip(), inverte os eixos x e y para melhor visualização&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;emmip&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;emmip(model, ~herbicide, type=&amp;quot;response&amp;quot;) + coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/pt/post/Controle/index_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Esta figura ajuda a visualizar o efeito do herbicida no controle de caruru. É mais útil em experiemnts de fatorial.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;médias-marginais-estimadas-médias-dos-quadrados-mínimos&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Médias marginais estimadas (médias dos quadrados mínimos)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;type=“response”, traz herbicida e intervalos de volta da escala logit&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cont=“pairwise”, comparações entre cada tratamento com herbicida&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;adjust=“none”, diferença menos significativa de fisher (pode usar “tukey”)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A &lt;em&gt;lsmeans&lt;/em&gt; forneceram os valores com o controle de plantas daninhas (prop), SE (erro padrão) e intervalos de confiança (lower.CL e upper.CL). Além disso, &lt;em&gt;lsmeans&lt;/em&gt; fornece os contrastes aos pares entre tratamentos (herbicidas).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;emmeans&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lsmeans &amp;lt;- emmeans(model, ~ herbicide, cont=&amp;quot;pairwise&amp;quot;, adjust=&amp;quot;none&amp;quot;, type=&amp;quot;response&amp;quot;, alpha=0.05)
+
+lsmeans&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $emmeans
+##  herbicide response      SE df lower.CL upper.CL
+##  A            0.975 0.00793 22    0.952    0.987
+##  B            0.964 0.01011 22    0.936    0.980
+##  C            0.915 0.01618 22    0.874    0.943
+##  D            0.542 0.02999 22    0.479    0.603
+##  E            0.871 0.01975 22    0.824    0.907
+## 
+## Confidence level used: 0.95 
+## Intervals are back-transformed from the logit scale 
+## 
+## $contrasts
+##  contrast odds.ratio      SE df t.ratio p.value
+##  A / B         1.488  0.6268 22  0.943  0.3559 
+##  A / C         3.677  1.3992 22  3.422  0.0024 
+##  A / D        33.295 11.6335 22 10.033  &amp;lt;.0001 
+##  A / E         5.831  2.1417 22  4.801  0.0001 
+##  B / C         2.472  0.8619 22  2.595  0.0165 
+##  B / D        22.379  6.9838 22  9.960  &amp;lt;.0001 
+##  B / E         3.919  1.3066 22  4.097  0.0005 
+##  C / D         9.055  2.1694 22  9.196  &amp;lt;.0001 
+##  C / E         1.586  0.4272 22  1.711  0.1011 
+##  D / E         0.175  0.0373 22 -8.175  &amp;lt;.0001 
+## 
+## Tests are performed on the log odds ratio scale&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizar-as-médias-de-controle-do-caruru&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Visualizar as médias de controle do caruru&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;comparisons=TRUE, comparações entre tratamentos com setas vermelhas&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;type=“response”, traz herbicida e intervalos de volta da escala logit&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;alpha=0.05, nível de significância a ser usado na construção de setas de comparação&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;adjust=“none”, diferença menos significativa de fisher (pode usar “tukey”)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;plot&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(lsmeans, ~ herbicide, comparisons =TRUE, type=&amp;quot;response&amp;quot;, alpha=0.05, adjust=&amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/pt/post/Controle/index_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O ponto preto é a média do controle do herbicida e o roxo é o intervalo de confiança. A seta vermelha é uma comparação entre tratamentos; se uma seta vermelha não se sobrepõe, os tratamentos são diferentes. Veja os contrastes de &lt;em&gt;lsmeans&lt;/em&gt; para verificar novamente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extrair-e-exibir-informações-em-todas-as-comparações-pareadas-de-médias-marginais-estimadas&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extrair e exibir informações em todas as comparações pareadas de médias marginais estimadas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;alpha=0.05, valor numérico que fornece o nível de significância para as comparações&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Letters=letters, exibir tratamentos de agrupamento de letras de acordo com comparações pareadas&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;adjust=“none”, diferença menos significativa de fisher (pode usar “tukey”)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;reversed = TRUE, a ordem de uso das letras é invertida&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;CLD&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cld &amp;lt;-CLD(lsmeans, alpha=0.05, Letters=letters, adjust=&amp;quot;none&amp;quot;, reversed = TRUE)
+
+cld &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  herbicide response      SE df lower.CL upper.CL .group
+##  A            0.975 0.00793 22    0.952    0.987  a    
+##  B            0.964 0.01011 22    0.936    0.980  a    
+##  C            0.915 0.01618 22    0.874    0.943   b   
+##  E            0.871 0.01975 22    0.824    0.907   b   
+##  D            0.542 0.02999 22    0.479    0.603    c  
+## 
+## Confidence level used: 0.95 
+## Intervals are back-transformed from the logit scale 
+## Tests are performed on the log odds ratio scale 
+## significance level used: alpha = 0.05&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;aviso&#34; class=&#34;section level6&#34;&gt;
+&lt;h6&gt;Aviso&lt;/h6&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;A função e os métodos do CLD estão obsoletos. Os agrupamentos de letras (CLD) incentivam uma interpretação enganosa do teste de significância por meio de agrupamento visual cujas comparações têm P&amp;gt; alfa como se fossem iguais. No entanto, não provar que duas médias são diferentes não significa que as médias são iguais. Além disso, os CLDs fazem uma distinção difícil entre os valores de P quase iguais a alfa, mas em lados opostos.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;figura&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Figura&lt;/h2&gt;
+&lt;div id=&#34;gráfico-de-pontos-com-intervalo-de-confiança&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Gráfico de pontos com intervalo de confiança&lt;/h5&gt;
+&lt;p&gt;Como a função &lt;em&gt;CLD&lt;/em&gt; está obsoleta, eu recomendo usar &lt;em&gt;lsmeans&lt;/em&gt; para criar uma figura.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nd &amp;lt;- as.data.frame(lsmeans$emmeans)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Use &lt;em&gt;nd&lt;/em&gt; para plotar uma figura.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ggplot function&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(nd, aes(x=reorder(herbicide,response), y=response*100, color=herbicide)) + 
+  geom_point(size=4) + ylim(0,100) + coord_flip() +
+  scale_color_manual(values=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;, &amp;quot;orange&amp;quot;, &amp;quot;purple&amp;quot;)) +
+  theme_bw() +  labs(y=&amp;quot;Controle de caruru (%)&amp;quot;, x=&amp;quot;Herbicidas&amp;quot;) +
+  geom_linerange(aes(ymin  =  lower.CL*100, ymax  =  upper.CL*100), size=1.5) + 
+  theme(axis.title = element_text(size=16),
+        axis.text = element_text(size=15),
+        legend.position = &amp;quot;none&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/pt/post/Controle/index_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As médias de controle de caruru (%) e o intervalo de confiança de cada herbicida são exibidos em uma figura do gráfico &lt;em&gt;ggplot&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gráfico-de-barras-com-agrupamento-de-letras&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Gráfico de barras com agrupamento de letras&lt;/h5&gt;
+&lt;p&gt;Se você gosta de apresentar os resultados em gráfico de barras com letras. Execute os codigos abaixo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(cld, aes(x=herbicide, y=response*100, fill=herbicide, label=.group)) + 
+  geom_bar(stat=&amp;quot;identity&amp;quot;) + ylim(0,105) +
+  scale_fill_manual(values=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;, &amp;quot;orange&amp;quot;, &amp;quot;purple&amp;quot;)) +
+  theme_bw() +  labs(y=&amp;quot;Waterhemp control (%)&amp;quot;, x=&amp;quot;Herbicides&amp;quot;) +
+  geom_text(nudge_y = 7, size=8) + 
+  theme(axis.title = element_text(size=16),
+        axis.text = element_text(size=15),
+        legend.position = &amp;quot;none&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/pt/post/Controle/index_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tabela&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tabela&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Execute o pacote abaixo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;library(kableExtra)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Este é uma tabela muito simples.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Função &lt;em&gt;kable&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kable(cld)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+herbicide
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+response
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+SE
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+df
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+lower.CL
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+upper.CL
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+.group
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+A
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9752142
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0079316
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9522053
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9872942
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+a
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+B
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9635645
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0101101
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9357085
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9796141
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+a
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+C
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9145302
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0161835
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8744471
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9426558
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+b
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+E
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8709271
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0197498
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8241647
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9066617
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+b
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+D
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5416446
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0299928
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.4791177
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6028868
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+c
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Essa postagem é a tradução do post em inglês &lt;a href=&#34;https://www.openweedsci.org/post/2019/12/20/one-way-anova-for-percentage-weed-control-data/&#34;&gt;One-Way ANOVA for Percentage Weed Control Data&lt;/a&gt; escrito por Maxwel C Oliveira e Rodrigo Werle no projeto &lt;a href=&#34;https://www.openweedsci.org&#34;&gt;Open Weed Science&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Documentando os Herbicidas no Brasil em 2020</title>
       <link>/pt/post/herbicidas-2020/</link>
-      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/pt/post/herbicidas-2020/</guid>
       <description>&lt;p&gt;Por Maxwel Coura Oliveira e Gustavo Antônio Mendes Pereira.&lt;/p&gt;
