@@ -9,7 +9,7 @@ image:
   caption: 'Image credit: [**Photo by Mika Baumeister on Unsplash**]'
   focal_point: ""
   preview_only: false
-lastmod: "2020-04-28T00:00:00Z"
+lastmod: "2020-05-19T00:00:00Z"
 projects: []
 subtitle: ''
 summary: 'Guia prático para identificar herbicidas no Brasil'
